@@ -19,5 +19,12 @@ __pycache__/
 **.terraform.lock*
 **terraform.tfstate*
 
-
+# Mac
 .DS_Store
+
+# MLflow
+mlruns/
+mlartifacts/
+outputs/
+mlruns.db
+**/basic_auth.db
