@@ -1,0 +1,100 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_loaders/data_ingestion.py
+  downstream_blocks:
+  - data_transform
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: data_ingestion
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: data_ingestion
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/data_transform.py
+  downstream_blocks:
+  - linear_regression
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: data_transform
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - data_ingestion
+  uuid: data_transform
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: homework_03/transformers/linear_regression.py
+    file_source:
+      path: homework_03/transformers/linear_regression.py
+  downstream_blocks:
+  - model_logging
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: linear_regression
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - data_transform
+  uuid: linear_regression
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_exporters/model_logging.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: model_logging
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - linear_regression
+  uuid: model_logging
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-07 21:24:34.421527+00:00'
+data_integration: null
+description: Perform data ingestion and pre-processing.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: data_preparation
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: data_preparation
+variables_dir: /home/src/mage_data/homework_03
+widgets: []
